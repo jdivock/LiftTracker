@@ -50,7 +50,7 @@ var LiftTracker = React.createClass({
         return (
             <TabBarIOS>
                 <TabBarIOS.Item title="LiftTracker"
-                                icon={ require('image!barbell') }
+                                icon={ require('image!womp') }
                                 onPress={ () =>
                                          this.changeTab('home') }
                                 selected={this.state.selectedTab ===
