@@ -1,0 +1,24 @@
+- request:
+    method: GET
+    url: ^/rest/lifts?$
+  response:
+    headers:
+      content-type: application/json
+    file: lifts.json
+    latency : 300
+- request:
+    method: PUT
+    url: ^/rest/lifts$
+  response:
+    headers:
+      content-type: application/json
+    file: liftResp.json
+    latency: 250
+- request:
+    method: GET
+    url: ^/rest/profile?$
+  response:
+    headers:
+      content-type: application/json
+    file: user.json
+    latency : 400

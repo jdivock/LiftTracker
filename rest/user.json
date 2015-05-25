@@ -1,0 +1,40 @@
+{
+  "results": [
+    {
+      "user": {
+        "gender": "male",
+        "name": {
+          "title": "mr",
+          "first": "tomothy",
+          "last": "garcia"
+        },
+        "location": {
+          "street": "2403 w 6th st",
+          "city": "birmingham",
+          "state": "maine",
+          "zip": "91217"
+        },
+        "email": "tomothy.garcia92@example.com",
+        "username": "purplewolf666",
+        "password": "shonuf",
+        "salt": "BJ4wogvm",
+        "md5": "bb7f5d58a4505564df45a1301dc519a1",
+        "sha1": "35b3a2e4ec29b5ea00f5868eaa23c07cf3ba0b1d",
+        "sha256": "7dfec0aaced398b84e38d1918e02264d672eddb0c1ca8b414ad3a374782b2493",
+        "registered": "1228317374",
+        "dob": "934674794",
+        "phone": "(609)-193-1084",
+        "cell": "(667)-596-3188",
+        "SSN": "848-78-4195",
+        "picture": {
+          "large": "http:\/\/api.randomuser.me\/portraits\/men\/97.jpg",
+          "medium": "http:\/\/api.randomuser.me\/portraits\/med\/men\/97.jpg",
+          "thumbnail": "http:\/\/api.randomuser.me\/portraits\/thumb\/men\/97.jpg"
+        },
+        "version": "0.6",
+        "nationality": "US"
+      },
+      "seed": "565c0748416c538207"
+    }
+  ]
+}

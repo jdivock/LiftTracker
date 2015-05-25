@@ -1,0 +1,51 @@
+[
+  {
+    "type": "squat",
+    "reps": 3,
+    "sets": 2
+    "weight": 250,
+    "unit": "kg"
+  },
+  {
+    "type": "squat",
+    "reps": 2,
+    "sets": 5
+    "weight": 150,
+    "unit": "kg"
+  },
+  {
+    "type": "squat",
+    "reps": 3,
+    "sets": 2
+    "weight": 220,
+    "unit": "kg"
+  },
+  {
+    "type": "squat",
+    "reps": 3,
+    "sets": 7
+    "weight": 250,
+    "unit": "kg"
+  },
+  {
+    "type": "bench",
+    "reps": 3,
+    "sets": 2
+    "weight": 30,
+    "unit": "kg"
+  },
+  {
+    "type": "bench",
+    "reps": 3,
+    "sets": 2
+    "weight": 150,
+    "unit": "kg"
+  },
+  {
+    "type": "deadlift",
+    "reps": 3,
+    "sets": 2
+    "weight": 330,
+    "unit": "kg"
+  }
+]
