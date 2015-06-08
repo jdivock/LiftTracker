@@ -4,7 +4,9 @@
  */
 'use strict';
 
-var React = require('react-native');
+var React = require('react-native'),
+    Home = require('./tabs/Home.ios'),
+    PickerExample = require('./tabs/PickerExample.ios');
 
 var {
     AppRegistry,
@@ -55,7 +57,7 @@ var LiftTracker = React.createClass({
                                          this.changeTab('home') }
                                 selected={this.state.selectedTab ===
                                           'home'}>
-                    <Text>Home!</Text>
+                    <Home/>
                 </TabBarIOS.Item>
                 <TabBarIOS.Item title="Profile"
                                 icon={ require('image!profile') }
