@@ -6,7 +6,7 @@
 
 var React = require('react-native'),
     Home = require('./tabs/Home.ios'),
-    PickerExample = require('./tabs/PickerExample.ios');
+    Parse = require('parse').Parse;
 
 var {
     AppRegistry,
@@ -35,6 +35,8 @@ var styles = StyleSheet.create({
         marginBottom: 5
     }
 });
+
+Parse.initialize("b6CKF1yyr40lUtp3o390OWxXQzKaK2SIFkNpmPUZ", "005j2FySLT2VC1tuWkendwiCqcw5msCKsXMwVQnm");
 
 var LiftTracker = React.createClass({
     getInitialState() {

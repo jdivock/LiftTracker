@@ -54,7 +54,6 @@ var LIFT_TYPES = [
    </PickerIOS>
  */
 
-Parse.initialize("b6CKF1yyr40lUtp3o390OWxXQzKaK2SIFkNpmPUZ", "005j2FySLT2VC1tuWkendwiCqcw5msCKsXMwVQnm");
 
 
 var Home = React.createClass({
@@ -73,35 +72,50 @@ var Home = React.createClass({
         };
     },
     onPress: function(){
-        ParseReact.Mutation.Create('LiftEntries', {
-            LiftType: this.state.liftType,
-            Sets: +this.state.sets,
-            Reps: +this.state.reps,
-            weight: +this.state.weight,
-            unit: 'lb',
-            date: new Date()
-        }).dispatch();
+        var self = this;
+        ParseReact.Mutation
+                  .Create('LiftEntries', {
+                      LiftType: this.state.liftType,
+                      Sets: +this.state.sets,
+                      Reps: +this.state.reps,
+                      weight: +this.state.weight,
+                      unit: 'lb',
+                      date: new Date()
+                  })
+                  .dispatch()
+                  .then(function(){
+                      self.setState({
+                          liftType: null,
+                          sets: 0,
+                          reps: 0,
+                          weight: 0
+                      });
+                  });
     },
     render: function(){
         return (
             <View>
                 <Text>Lift:</Text>
                 <TextInput style={styles.baseTextInput}
+                           value={this.state.liftType}
                            keyboardType='text'
                            onChangeText={(text) => this.setState({liftType: text})}
                 />
                 <Text>Sets:</Text>
                 <TextInput style={styles.baseTextInput}
+                           value={this.state.sets}
                            keyboardType='numeric'
                            onChangeText={(text) => this.setState({sets: text})}
                 />
                 <Text>Reps:</Text>
                 <TextInput style={styles.baseTextInput}
+                           value={this.state.reps}
                            keyboardType='numeric'
                            onChangeText={(text) => this.setState({reps: text})}
                 />
                 <Text>Weight:</Text>
                 <TextInput style={styles.baseTextInput}
+                           value={this.state.weight}
                            keyboardType='numeric'
                            onChangeText={(text) => this.setState({weight: text})}
                 />
@@ -118,4 +132,3 @@ var Home = React.createClass({
 });
 
 module.exports = Home;
-
