@@ -15,10 +15,17 @@ var {
 
 var styles = StyleSheet.create({
     baseTextInput: {
-        marginTop: 60,
+        marginTop: 10,
+        marginBottom: 10,
+        paddingLeft: 5,
         height: 40,
         borderColor: 'gray',
         borderWidth: 1
+    },
+    baseView: {
+        marginTop: 35,
+        marginLeft: 10,
+        marginRight: 10
     },
     buttonText: {
         fontSize: 18,
@@ -26,6 +33,7 @@ var styles = StyleSheet.create({
         alignSelf: 'center'
     },
     button: {
+        marginTop: 15,
         height: 36,
         backgroundColor: '#48BBEC',
         borderColor: '#48BBEC',
@@ -68,7 +76,8 @@ var Home = React.createClass({
         return {
             liftType: null,
             sets: 0,
-            weight: 0
+            weight: 0,
+            reps: 0
         };
     },
     onPress: function(){
@@ -94,7 +103,7 @@ var Home = React.createClass({
     },
     render: function(){
         return (
-            <View>
+            <View style={styles.baseView}>
                 <Text>Lift:</Text>
                 <TextInput style={styles.baseTextInput}
                            value={this.state.liftType}
