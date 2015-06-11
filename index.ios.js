@@ -6,7 +6,8 @@
 
 var React = require('react-native'),
     Home = require('./tabs/Home.ios'),
-    Parse = require('parse').Parse;
+    Parse = require('parse').Parse,
+    PickerExample = require('./tabs/PickerExample.ios');
 
 var {
     AppRegistry,
@@ -67,7 +68,7 @@ var LiftTracker = React.createClass({
                                          this.changeTab('profile') }
                                 selected={this.state.selectedTab ===
                                           'profile'}>
-                    <Text>Profile!</Text>
+                    <PickerExample/>
                 </TabBarIOS.Item>
                 <TabBarIOS.Item title="Settings"
                                 icon={require('image!settings')}

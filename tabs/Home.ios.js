@@ -69,7 +69,8 @@ var Home = React.createClass({
 
     observe: function(){
         return {
-            liftEntries: (new Parse.Query('LiftEntries'))
+                liftEntries: (new Parse.Query('LiftEntries'))
+                                       .equalTo('LiftType', 'Squat')
         };
     },
     getInitialState: function(){
