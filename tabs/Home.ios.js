@@ -2,6 +2,8 @@
 
 var React = require('react-native'),
     Parse = require('parse').Parse,
+    _ = require('lodash'),
+    moment = require('moment'),
     ParseReact = require('parse-react');
 
 var {
@@ -14,6 +16,9 @@ var {
 } = React;
 
 var styles = StyleSheet.create({
+    lastLift: {
+
+    },
     baseTextInput: {
         marginTop: 10,
         marginBottom: 10,
@@ -67,10 +72,12 @@ var LIFT_TYPES = [
 var Home = React.createClass({
     mixins: [ParseReact.Mixin],
 
+    /**
+     * Get all lifts for now, going to give this some more though later
+     */
     observe: function(){
         return {
-                liftEntries: (new Parse.Query('LiftEntries'))
-                                       .equalTo('LiftType', 'Squat')
+                liftEntries: (new Parse.Query('LiftEntries')).ascending('date')
         };
     },
     getInitialState: function(){
@@ -94,22 +101,41 @@ var Home = React.createClass({
                   })
                   .dispatch()
                   .then(function(){
-                      self.setState({
-                          liftType: null,
-                          sets: 0,
-                          reps: 0,
-                          weight: 0
-                      });
+                      self.replaceState(self.getInitialState());
                   });
     },
+    /**
+     * Need more logic here around bucketing lifts of different
+     * weights that happened in the same Days
+     */
+    onLiftChange: function(liftTypeInput){
+        var lastLiftEntry = _.find(this.data.liftEntries, { LiftType: liftTypeInput });
+
+        this.setState({
+            liftType: liftTypeInput,
+            lastLiftEntry: lastLiftEntry
+        });
+    },
     render: function(){
+        var lastLiftEntry;
+        if(this.state.lastLiftEntry){
+            lastLiftEntry = (
+                <View style={styles.lastLift}>
+                    <Text>Last Lift ({moment(this.state.lastLiftEntry.date).format('L')})</Text>
+                    <Text>Lift: {this.state.lastLiftEntry.LiftType}</Text>
+                    <Text>{this.state.lastLiftEntry.Sets} x {this.state.lastLiftEntry.Reps} @ {this.state.lastLiftEntry.weight} {this.state.lastLiftEntry.unit}</Text>
+                </View>
+            );
+        }
+
         return (
             <View style={styles.baseView}>
+                {lastLiftEntry}
                 <Text>Lift:</Text>
                 <TextInput style={styles.baseTextInput}
                            value={this.state.liftType}
                            keyboardType='text'
-                           onChangeText={(text) => this.setState({liftType: text})}
+                           onChangeText={this.onLiftChange}
                 />
                 <Text>Sets:</Text>
                 <TextInput style={styles.baseTextInput}
